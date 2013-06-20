@@ -159,7 +159,7 @@
 * Fixed off-by-one timing bug (MS logic) when last move of a level is
   involuntary (discovered by Anders Kaseorg).
 * Changed pause button to work as a toggle (i.e., no other keys will exit
-  pause mode), as requested by Hallgeir Fl .
+  pause mode), as requested by Hallgeir Flø.
 
 2002 Feb 25: version 0.10.5
 
@@ -178,7 +178,7 @@
 
 * Separated out the two kinds of splashes.
 * Fixed changing level by password (broken in 0.10.3; reported by Hallgeir
-  Fl ).
+  Flø).
 * Fixed a couple of bugs in handling invalid levels under Lynx (reported by
   Chuck Sommerville).
 * Fixed several minor bugs (including several reported by Anders Kaseorg).
