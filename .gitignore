@@ -1,0 +1,6 @@
+*.o
+*.a
+moc_*.cpp
+ui_*.h
+comptime.h
+tworld2
