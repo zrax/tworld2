@@ -45,41 +45,32 @@ c:\tworld\tworld2, or create a shortcut for it.
 
 Tile World 2 has not yet been extensively tested on Linux.
 
-The build system at this point is not extremely robust, consisting of
-only a hand-written makefile for GNU Make and no configure script.
-
-(Efforts are underway to improve upon this, and to possibly also provide
-pre-compiled binary packages for some flavors of Linux.)
-
 Before proceeding, ensure that you have Qt 4 and SDL installed on your machine.
 (If you don't have SDL, you can get it by visiting
 http://www.libsdl.org/download.html. If you download a precompiled version
 -- i.e., an .rpm or .deb file -- note that you will need the development
 runtime, as opposed to the binary runtime.)
-Tile World has been tested with Qt 4.5.3, although Qt 4.4 should also work.
-Earlier versions of Qt may not work.
+Tile World has been tested with Qt 4.7.2, although any Qt 4.4 or later should
+also work.  Earlier versions of Qt may not work.
 
 Installing Tile World involves the following steps:
 
 Assuming that the Qt and SDL development libraries are properly installed,
-the makefile will try to figure out the necessary flags internally by calling
-qmake and sdl-config.
+cmake will try to figure out the necessary flags internally.
 
-If the environment variable QTDIR is set, then $QTDIR/include and $QTDIR/lib
-will be used instead of calling qmake.
+  cmake /path/to/tworld2-sources
 
-For Windows, it is necessary to set the environment variable SDLDIR to the
-location where SDL is installed, and to set OSTYPE=windows.
+If you encounter any warnings or errors from cmake, you may need to provide
+a manual path to your compatible qmake.exe or libsdl includes and libraries.
+
+For a makefile-based compile (the default for Linux, OSX and MinGW), run:
 
   make
-
-There shouldn't be any serious warnings from the compiler. Use "make
-mklynxcc" if you want to also build a copy of mklynxcc (see below).
-
-For Windows, mingw32-make must be used and the default Command Prompt (cmd)
-is assumed, not the MSYS shell.
-
   make install
+
+If you used an IDE generator (e.g. Visual Studio or XCode), you can open
+the generated project files and compile normally.  The special "INSTALL"
+build target will perform the equivalent of a "make install".
 
 Running "make install" as root will do the following:
 
@@ -90,9 +81,6 @@ Running "make install" as root will do the following:
   /usr/local/share/tworld/res.
 * Create the directories /usr/local/share/tworld/data and
   /usr/local/share/tworld/sets.
-  
-Running "make install2" instead will copy only the binary and manpage,
-which is sufficient for upgrading existing installations of Tile World.
 
 The sets directory is where you will generally store the .dat files that
 you want to use. However, if you want to make use of a configuration file
